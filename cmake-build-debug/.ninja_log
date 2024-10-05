@@ -1,0 +1,15 @@
+# ninja log v6
+2	222	7498683649605071	build.ninja	2b8dfdfba0e21dba
+4	597	7498676801932214	CMakeFiles/TSP_1.dir/Source/Class/main.cpp.obj	e6924f786bf92dd8
+7	824	7498676801962612	CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/INIReader.cpp.obj	f918e0bc8d8191d4
+824	1061	7498676810129913	TSP_1.exe	88400f72f3d1372
+8	145	7498666106206818	CMakeFiles/TSP_1.dir/Source/Class/Run.cpp.obj	1ea0c529d3c9b496
+11	100	7498676802003032	CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/ini.cpp.obj	d3df393b398a7061
+2	237	7498683649605071	build.ninja	2b8dfdfba0e21dba
+5	631	7498683649841690	CMakeFiles/TSP_1.dir/Source/Class/main.cpp.obj	e6924f786bf92dd8
+12	71	7498683981631935	CMakeFiles/TSP_1.dir/Source/Class/BruteForce.cpp.obj	757e85f172cb2b64
+16	72	7498683981671958	CMakeFiles/TSP_1.dir/Source/Class/Random.cpp.obj	27a4c17c8ad6e029
+5	73	7498683981561680	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+73	305	7498683982236260	TSP_1.exe	63edd1ccb6ed1659
+5	621	7498721449088521	CMakeFiles/TSP_1.dir/Source/Class/main.cpp.obj	e6924f786bf92dd8
+622	831	7498721455252779	TSP_1.exe	63edd1ccb6ed1659
