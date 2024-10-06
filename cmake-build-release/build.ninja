@@ -55,6 +55,24 @@ build CMakeFiles/TSP_1.dir/Source/Class/main.cpp.obj: CXX_COMPILER__TSP_1_unscan
   OBJECT_DIR = CMakeFiles\TSP_1.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_1.dir\Source\Class
 
+build CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj: CXX_COMPILER__TSP_1_unscanned_Release D$:/InteliJ/Projects/C++/PEA/TSP_1/Source/Class/NearestNeighbour.cpp || cmake_object_order_depends_target_TSP_1
+  DEP_FILE = CMakeFiles\TSP_1.dir\Source\Class\NearestNeighbour.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TSP_1.dir
+  OBJECT_FILE_DIR = CMakeFiles\TSP_1.dir\Source\Class
+
+build CMakeFiles/TSP_1.dir/Source/Class/BruteForce.cpp.obj: CXX_COMPILER__TSP_1_unscanned_Release D$:/InteliJ/Projects/C++/PEA/TSP_1/Source/Class/BruteForce.cpp || cmake_object_order_depends_target_TSP_1
+  DEP_FILE = CMakeFiles\TSP_1.dir\Source\Class\BruteForce.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TSP_1.dir
+  OBJECT_FILE_DIR = CMakeFiles\TSP_1.dir\Source\Class
+
+build CMakeFiles/TSP_1.dir/Source/Class/Random.cpp.obj: CXX_COMPILER__TSP_1_unscanned_Release D$:/InteliJ/Projects/C++/PEA/TSP_1/Source/Class/Random.cpp || cmake_object_order_depends_target_TSP_1
+  DEP_FILE = CMakeFiles\TSP_1.dir\Source\Class\Random.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TSP_1.dir
+  OBJECT_FILE_DIR = CMakeFiles\TSP_1.dir\Source\Class
+
 build CMakeFiles/TSP_1.dir/Source/Class/Run.cpp.obj: CXX_COMPILER__TSP_1_unscanned_Release D$:/InteliJ/Projects/C++/PEA/TSP_1/Source/Class/Run.cpp || cmake_object_order_depends_target_TSP_1
   DEP_FILE = CMakeFiles\TSP_1.dir\Source\Class\Run.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++20 -fdiagnostics-color=always
@@ -67,11 +85,11 @@ build CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/INIReader.cpp.obj: CXX_COM
   OBJECT_DIR = CMakeFiles\TSP_1.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_1.dir\Source\Libraries\iniParser
 
-build CMakeFiles/TSP_1.dir/Source/Class/ini.cpp.obj: CXX_COMPILER__TSP_1_unscanned_Release D$:/InteliJ/Projects/C++/PEA/TSP_1/Source/Class/ini.cpp || cmake_object_order_depends_target_TSP_1
-  DEP_FILE = CMakeFiles\TSP_1.dir\Source\Class\ini.cpp.obj.d
+build CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/ini.cpp.obj: CXX_COMPILER__TSP_1_unscanned_Release D$:/InteliJ/Projects/C++/PEA/TSP_1/Source/Libraries/iniParser/ini.cpp || cmake_object_order_depends_target_TSP_1
+  DEP_FILE = CMakeFiles\TSP_1.dir\Source\Libraries\iniParser\ini.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TSP_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\TSP_1.dir\Source\Class
+  OBJECT_FILE_DIR = CMakeFiles\TSP_1.dir\Source\Libraries\iniParser
 
 
 # =============================================================================
@@ -81,7 +99,7 @@ build CMakeFiles/TSP_1.dir/Source/Class/ini.cpp.obj: CXX_COMPILER__TSP_1_unscann
 #############################################
 # Link the executable TSP_1.exe
 
-build TSP_1.exe: CXX_EXECUTABLE_LINKER__TSP_1_Release CMakeFiles/TSP_1.dir/Source/Class/main.cpp.obj CMakeFiles/TSP_1.dir/Source/Class/Run.cpp.obj CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/INIReader.cpp.obj CMakeFiles/TSP_1.dir/Source/Class/ini.cpp.obj
+build TSP_1.exe: CXX_EXECUTABLE_LINKER__TSP_1_Release CMakeFiles/TSP_1.dir/Source/Class/main.cpp.obj CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj CMakeFiles/TSP_1.dir/Source/Class/BruteForce.cpp.obj CMakeFiles/TSP_1.dir/Source/Class/Random.cpp.obj CMakeFiles/TSP_1.dir/Source/Class/Run.cpp.obj CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/INIReader.cpp.obj CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/ini.cpp.obj
   FLAGS = -O3 -DNDEBUG
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TSP_1.dir

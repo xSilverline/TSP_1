@@ -15,4 +15,6 @@ add_executable(TSP_1 Source/Class/main.cpp
         Source/Libraries/iniParser/INIReader.cpp
         Source/Libraries/iniParser/INIReader.h
         Source/Libraries/iniParser/ini.cpp
-        Source/Libraries/iniParser/ini.h)
+        Source/Libraries/iniParser/ini.h
+        Source/Headers/Structures.h
+        Source/Headers/TimeCounter.h)

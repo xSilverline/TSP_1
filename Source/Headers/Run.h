@@ -5,8 +5,25 @@
 #ifndef TSP_1_RUN_H
 #define TSP_1_RUN_H
 
+#include "NearestNeighbour.h"
 
-class Run {
+class Run
+        {
+
+private:
+            int ** graphMatrix;
+            int graphSize;
+            int repeats;
+            bool showProgressBar;
+            void runNN();
+            void runBrute();
+            void runRandom();
+
+
+
+public:
+            void run(int ** graphMatrix, int graphSize, int repeats,bool showProgressBar);
+
 
 };
 

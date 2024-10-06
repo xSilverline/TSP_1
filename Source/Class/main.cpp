@@ -1,10 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include "../Libraries/iniParser/INIReader.h"
-
-
+#include "../Headers/Structures.h"
+#include "../Headers/Run.h"
 
 using namespace std;
+
+
 
 string inputFileName;
 string outputFileName;
@@ -14,13 +16,12 @@ int killSwitch = 0;
 bool progressBar = false;
 int dataSize = 0;
 int ** graphMatrix = nullptr;
+listElement ** graphList = nullptr;
+
+
 
 int main()
 {
-
-
-
-
 
     INIReader configReader("config.ini");
 
@@ -45,16 +46,34 @@ int main()
     dataInput >> dataSize;
 
     graphMatrix = new int * [dataSize];
+    graphList = new listElement * [dataSize];
+    listElement * newNode;
 
     //TODO: Add validation of input data
     //  Check if open, in proper format
 
+    int temp=0;
     for(int i = 0; i< dataSize; i++)
     {
         graphMatrix[i] = new int [dataSize];
+        graphList[i] = nullptr;
+
         for(int j = 0; j<dataSize;j++)
         {
-            dataInput >> graphMatrix[i][j];
+            dataInput >> temp;
+
+            graphMatrix[i][j] = temp;
+
+            if(temp != -1)
+            {
+                newNode = new listElement;
+                newNode->target = j;
+                newNode->weight = temp;
+                newNode->next = graphList[i];
+                graphList[i] = newNode;
+            }
+
+
         }
     }
 
@@ -66,6 +85,11 @@ int main()
         }
         cout<<endl;
     }
+
+    Run run;
+    run.run(graphMatrix,dataSize,repeats,progressBar);
+
+
 
 
 

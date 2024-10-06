@@ -5,8 +5,14 @@
 #ifndef TSP_1_NEARESTNEIGHBOUR_H
 #define TSP_1_NEARESTNEIGHBOUR_H
 
+#include "TimeCounter.h"
 
-class NearestNeighbour {
+
+class NearestNeighbour
+        {
+private:
+public:
+            double runNN(int ** graphMatrix, int v);
 
 };
 
