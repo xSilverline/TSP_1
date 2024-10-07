@@ -5,15 +5,16 @@
 #include "../Headers/NearestNeighbour.h"
 
 int **nnMatrix = nullptr;
+int cost=0;
 
-double NearestNeighbour::runNN(int **graphMatrix, int v)
+double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode)
 {
     int visited [v];
     int visitSum = 0;
     int totalCost = 0;
     nnMatrix = new int * [v];
 
-    int currentNode = 0; // TODO make in config.ini startingNode
+    int currentNode = startingNode;
 
 
     for(int i =0; i< v; i++)
@@ -24,6 +25,7 @@ double NearestNeighbour::runNN(int **graphMatrix, int v)
     }
     std::cout<<endl;
 
+    startCounter();
     while(visitSum<v-1)
     {
 
@@ -44,10 +46,24 @@ double NearestNeighbour::runNN(int **graphMatrix, int v)
         std::cout<<currentNode<<" -> "<<goToN<<" "<<minimum<<endl;
         totalCost+=minimum;
         currentNode = goToN;
-        std::cout<<currentNode<<" -> "<<totalCost<<endl;
+//        std::cout<<currentNode<<" -> "<<totalCost<<endl;
+
+
     }
 
+    totalCost+=graphMatrix[currentNode][startingNode];
+    cost = totalCost;
+
+    double time = getCounter();
+    std::cout<<currentNode<<" -> "<<startingNode<<" "<<graphMatrix[currentNode][startingNode]<<endl;
+
     std::cout<<"Koszt: "<<totalCost<<endl;
+    std::cout<<"Czas: "<<time<<endl;
 
     return 0;
+}
+
+int NearestNeighbour::getCost()
+{
+    return cost;
 }

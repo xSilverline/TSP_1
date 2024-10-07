@@ -12,7 +12,8 @@ class NearestNeighbour
         {
 private:
 public:
-            double runNN(int ** graphMatrix, int v);
+            int getCost();
+            double runNN(int ** graphMatrix, int v,int startingNode);
 
 };
 

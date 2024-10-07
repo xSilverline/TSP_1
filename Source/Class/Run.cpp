@@ -4,18 +4,27 @@
 
 #include "../Headers/Run.h"
 
-void Run::run(int **matrix,int size, int reps, bool showPBar)
+void Run::run(int **matrix,int size, int reps,int start, bool showPBar)
 {
     this->graphMatrix = matrix;
     this->graphSize = size;
     this->repeats = reps;
     this->showProgressBar = showPBar;
+    this->startingNode = start;
 
     double time=0;
 
     NearestNeighbour nearestNeighbour;
+    BruteForce bruteForce;
 
-    time = nearestNeighbour.runNN(graphMatrix,graphSize);
+    for(int i = 0 ; i < repeats; i++)
+    {
+        time = nearestNeighbour.runNN(graphMatrix,graphSize,startingNode);
+        time = bruteForce.runBrute(graphMatrix,graphSize,startingNode);
+
+    }
+
+
 
 
 

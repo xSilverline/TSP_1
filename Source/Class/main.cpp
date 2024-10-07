@@ -13,6 +13,7 @@ string outputFileName;
 
 int repeats=0;
 int killSwitch = 0;
+int startingNode = 0;
 bool progressBar = false;
 int dataSize = 0;
 int ** graphMatrix = nullptr;
@@ -35,6 +36,7 @@ int main()
     outputFileName = configReader.Get("Settings","outputFileName","DefaultOutput.txt");
     repeats = configReader.GetInteger("Settings","numberOfRepeats",1);
     killSwitch = configReader.GetInteger("Settings","killSwitch",1000);
+    startingNode = configReader.GetInteger("Settings","startingNode",0);
     progressBar = configReader.GetBoolean("Settings","showProgressBar",false);
 
     cout << "Read DONE" << endl;
@@ -87,7 +89,7 @@ int main()
     }
 
     Run run;
-    run.run(graphMatrix,dataSize,repeats,progressBar);
+    run.run(graphMatrix,dataSize,repeats,startingNode,progressBar);
 
 
 
