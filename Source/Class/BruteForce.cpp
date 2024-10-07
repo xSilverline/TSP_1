@@ -83,14 +83,6 @@ double BruteForce::runBrute(int **graphMatrix, int v, int startingNode)
     std::cout<<"Best Path: "<<bestPath<<endl;
     std::cout<<"Cost: "<<minCost<<endl;
 
-
-
-
-
-
-
-
-
     return 0;
 }
 

@@ -5,8 +5,13 @@
 #ifndef TSP_1_RANDOM_H
 #define TSP_1_RANDOM_H
 
+#include "TimeCounter.h"
 
-class Random {
+class Random
+        {
+private:
+public:
+            double runRand(int ** graphMatrix, int v);
 
 };
 

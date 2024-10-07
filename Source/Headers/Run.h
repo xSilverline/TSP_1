@@ -7,6 +7,7 @@
 
 #include "NearestNeighbour.h"
 #include "BruteForce.h"
+#include "Random.h"
 
 class Run
         {

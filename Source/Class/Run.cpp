@@ -16,12 +16,13 @@ void Run::run(int **matrix,int size, int reps,int start, bool showPBar)
 
     NearestNeighbour nearestNeighbour;
     BruteForce bruteForce;
+    Random random;
 
     for(int i = 0 ; i < repeats; i++)
     {
         time = nearestNeighbour.runNN(graphMatrix,graphSize,startingNode);
         time = bruteForce.runBrute(graphMatrix,graphSize,startingNode);
-
+        time = random.runRand(graphMatrix,graphSize);
     }
 
 
