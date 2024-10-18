@@ -6,6 +6,7 @@
 #define TSP_1_NEARESTNEIGHBOUR_H
 
 #include "TimeCounter.h"
+#include "Structures.h"
 
 
 class NearestNeighbour
@@ -13,7 +14,7 @@ class NearestNeighbour
 private:
 public:
             int getCost();
-            double runNN(int ** graphMatrix, int v,int startingNode);
+            double runNN(int ** graphMatrix, int v,int startingNode,bool print);
 
 };
 

@@ -4,19 +4,31 @@
 
 #include "../Headers/BruteForce.h"
 
+
 int **bruteMatrix = nullptr;
 int minCost = MAXINT;
 int limitCost=MAXINT;
-string bestPath;
+bool overLimit = false;
+int killBrute;
 
-void permutation(string path, int position = 0)
+
+int *bestPath;
+
+void permutation(int *path, int position = 0, int v=0)
 {
-    if(position != path.size())
+
+
+    double killTimer = getCounter();
+
+    if(killTimer > killBrute)
+        return;
+
+    if(position != v)
     {
-        for(int i = position; i<path.size();i++)
+        for(int i = position; i<v;i++)
         {
             swap(path[i],path[position]);
-            permutation(path,position+1);
+            permutation(path,position+1,v);
             swap(path[i],path[position]);
         }
     }
@@ -25,65 +37,114 @@ void permutation(string path, int position = 0)
         int cost = 0;
         int current;
         int next;
-        for(int i = 0; i<path.size()-1;i++)
+        for(int i = 0; i<v-1;i++)
         {
-            current = (int) path[i]-48;
-            next =(int) path[i+1]-48;
+            current = path[i];
+            next =path[i+1];
             cost+=bruteMatrix[current][next];
-            if(cost > limitCost)
+            if(cost > limitCost || cost > minCost)
+            {
+                overLimit = true;
                 break;
-        }
-        int first = (int)path[0]-48;
-        cost+=bruteMatrix[next][first];
+            }
 
-        if(minCost > cost)
+        }
+        if(!overLimit)
         {
-            minCost = cost;
-            bestPath = path;
-        }
+            int first = path[0];
+            cost+=bruteMatrix[next][first];
 
-        std::cout<<path<<" --> Cost: "<<cost<<endl;
+            if(minCost > cost)
+            {
+                minCost = cost;
+                copy(path,path+v,bestPath);
+            }
+
+
+//            std::cout<<path<<" --> Cost: "<<cost<<endl;
+        }
+//        else
+//        {
+////            std::cout<<path<<" --> Cost: Over Limit - skip"<<endl;
+//        }
+        overLimit = false;
+//        for(int i = 0; i<v;i++)
+//        {
+//            cout<<bestPath[i]<<" ";
+//        }
+//        cout<<endl;
+
     }
 }
 
-double BruteForce::runBrute(int **graphMatrix, int v, int startingNode)
+double BruteForce::runBrute(int **graphMatrix, int x,int killSwitch,int startingNode)
 {
+    minCost = MAXINT;
+    limitCost=MAXINT;
+    int v = 0;
+    v=x;
+    killBrute = killSwitch;
     int counterList [v];
-
+    bestPath = new int [v];
     NearestNeighbour nn;
-    nn.runNN(graphMatrix,v,startingNode);
+//    nn.runNN(graphMatrix,v,startingNode);
 
     limitCost = nn.getCost();
+    if(limitCost == 0)
+    {
+        nn.runNN(graphMatrix,v,startingNode,true);
+        limitCost = nn.getCost();
+    }
+
+//    cout<<limitCost<<endl;
 
     int visited [v];
-    int visitSum = 0;
-    int totalCost = 0;
+    int path[v];
+
     bruteMatrix = new int * [v];
 
-    int currentNode = startingNode;
+
 
     for(int i =0; i< v; i++)
     {
         counterList[i] = 0;
+        path[i]=i;
         visited[i] = 0;
         bruteMatrix[i] = new int [v];
         std::copy(graphMatrix[i],graphMatrix[i]+v,bruteMatrix[i]);
     }
-    std::cout<<endl;
 
-    string path;
-    for(int i = 0; i<v;i++)
+
+    startCounter();
+
+    permutation(path,0,v);
+
+    double time = getCounter();
+
+    std::cout<<"-- Brute Force -- "<<endl;
+    if(v < 17)
     {
-        path.append(to_string(i));
+        std::cout<<"Best Path: "<<endl;
+        for(int i=0;i<v;i++)
+        {
+            cout<<bestPath[i]<<" -> ";
+        }
+        cout<<bestPath[0]<<endl;
     }
-    std::cout<<path<<endl;
-    std::cout<<endl;
-    permutation(path,0);
-
-    std::cout<<"Best Path: "<<bestPath<<endl;
     std::cout<<"Cost: "<<minCost<<endl;
+    std::cout<<"Time: "<<time<<" ms"<<endl;
+    if(time > killSwitch)
+        cout<<"Process killed - time limit exceeded!  "<<endl;
 
-    return 0;
+    return time;
 }
+
+//resultHelper BruteForce::getResult()
+//{
+//    resultHelper result{};
+//    result.cost = minCost;
+//    result.path = bestPath;
+//    return result;
+//}
 
 

@@ -6,6 +6,7 @@
 #define TSP_1_RANDOM_H
 
 #include "TimeCounter.h"
+#include "Structures.h"
 
 class Random
         {

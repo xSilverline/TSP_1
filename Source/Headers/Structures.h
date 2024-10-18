@@ -12,5 +12,11 @@ struct listElement
     int weight = 0;
 };
 
+struct resultHelper
+{
+    int * path;
+    int cost;
+};
+
 
 #endif //TSP_1_STRUCTURES_H

@@ -18,7 +18,7 @@ double Random::runRand(int **graphMatrix, int v)
     int totalCost = 0;
     int elementList [v];
     randMatrix = new int * [v];
-    string path;
+    int result [v];
 
     for(int i = 0; i< v; i++)
     {
@@ -29,39 +29,43 @@ double Random::runRand(int **graphMatrix, int v)
 
     generator.seed(std::chrono::system_clock::now().time_since_epoch().count());
 
+    startCounter();
     for(int i = 0; i< v; i++)
     {
         std::uniform_int_distribution<int> destination(0, v - 1 - i);
         int target = destination(generator);
-        path.append(to_string(elementList[target]));
+        result[i] = elementList[target];
         if(target != (v-1-i))
             swap(elementList[v-1-i],elementList[target]);
     }
 
-    std::cout<<endl;
-
     int current;
     int next;
 
-    for(int i = 0; i<path.size()-1;i++)
+    for(int i = 0; i<v-1;i++)
     {
-        current = (int) path[i]-48;
-        next =(int) path[i+1]-48;
+        current = result[i];
+        next =result[i+1];
         totalCost+=randMatrix[current][next];
     }
-    int first = (int)path[0]-48;
+    int first = result[0];
     totalCost+=randMatrix[next][first];
 
-    std::cout<<path<<" --> Cost: "<<totalCost<<endl;
+    double time = getCounter();
+
+    std::cout<<"-- Random -- "<<endl;
+    if(v < 17)
+    {
+        std::cout<<"Best Path: "<<endl;
+        for(int i : result)
+        {
+            cout<<i<<" -> ";
+        }
+        cout<<result[0]<<endl;
+    }
+    std::cout<<"Cost: "<<totalCost<<endl;
+    std::cout<<"Time: "<<time<<" ms"<<endl;
 
 
-
-
-
-
-
-
-
-
-    return 0;
+    return time;
 }

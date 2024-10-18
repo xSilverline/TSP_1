@@ -6,16 +6,21 @@
 #define TSP_1_BRUTEFORCE_H
 
 #include "TimeCounter.h"
+#include "Structures.h"
 #include "NearestNeighbour.h"
+#include <algorithm>
 
 
 class BruteForce
 {
 private:
 
-public:
-    double runBrute(int ** graphMatrix, int v,int startingNode);
 
+public:
+    double runBrute(int ** graphMatrix, int v,int killSwitch,int startingNode);
+
+
+//    resultHelper getResult();
 };
 
 

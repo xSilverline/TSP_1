@@ -22,10 +22,18 @@ private:
 //            void runBrute();
 //            void runRandom();
 
+    void runAll(int killSwitch);
+
+    void runRN();
+
+    void runNN();
+
+    void runBF(int killSwitch);
 
 
 public:
-            void run(int ** graphMatrix, int graphSize, int repeats,int start,bool showProgressBar);
+            void run(int ** graphMatrix, int graphSize, int repeats,int start,bool showProgressBar,int killSwitch,const string& method,string output,string input,int opt);
+
 
 
 };
