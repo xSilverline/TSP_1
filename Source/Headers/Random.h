@@ -12,7 +12,7 @@ class Random
         {
 private:
 public:
-            double runRand(int ** graphMatrix, int v);
+            double runRand(int ** graphMatrix, int v,int killSwitch,int optimal);
 
 };
 

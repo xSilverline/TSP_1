@@ -11,7 +11,7 @@ std::default_random_engine generator;
 
 int ** randMatrix = nullptr;
 
-double Random::runRand(int **graphMatrix, int v)
+double Random::runRand(int **graphMatrix, int v,int killSwitch,int optimal)
 {
     int visited [v];
     int visitSum = 0;
@@ -30,30 +30,44 @@ double Random::runRand(int **graphMatrix, int v)
     generator.seed(std::chrono::system_clock::now().time_since_epoch().count());
 
     startCounter();
-    for(int i = 0; i< v; i++)
+    while(true)
     {
-        std::uniform_int_distribution<int> destination(0, v - 1 - i);
-        int target = destination(generator);
-        result[i] = elementList[target];
-        if(target != (v-1-i))
-            swap(elementList[v-1-i],elementList[target]);
-    }
+        double killTimer = getCounter();
 
-    int current;
-    int next;
+        if (killTimer > killSwitch)
+            return killTimer;
 
-    for(int i = 0; i<v-1;i++)
-    {
-        current = result[i];
-        next =result[i+1];
-        totalCost+=randMatrix[current][next];
+        for (int i = 0; i < v; i++) {
+
+            std::uniform_int_distribution<int> destination(0, v - 1 - i);
+            int target = destination(generator);
+            result[i] = elementList[target];
+            if (target != (v - 1 - i))
+                swap(elementList[v - 1 - i], elementList[target]);
+        }
+
+        int current;
+        int next;
+
+        for (int i = 0; i < v - 1; i++) {
+            current = result[i];
+            next = result[i + 1];
+            totalCost += randMatrix[current][next];
+        }
+        int first = result[0];
+        totalCost += randMatrix[next][first];
+
+        if(totalCost == optimal)
+            break;
+        else
+        {
+            totalCost = 0;
+        }
     }
-    int first = result[0];
-    totalCost+=randMatrix[next][first];
 
     double time = getCounter();
 
-    std::cout<<"-- Random -- "<<endl;
+    std::cout<<" -- Random -- "<<endl;
     if(v < 17)
     {
         std::cout<<"Best Path: "<<endl;

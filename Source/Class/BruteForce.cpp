@@ -92,7 +92,7 @@ double BruteForce::runBrute(int **graphMatrix, int x,int killSwitch,int starting
     limitCost = nn.getCost();
     if(limitCost == 0)
     {
-        nn.runNN(graphMatrix,v,startingNode,true);
+        nn.runNN(graphMatrix,v,startingNode,true,killSwitch);
         limitCost = nn.getCost();
     }
 

@@ -7,7 +7,7 @@
 int **nnMatrix = nullptr;
 int cost=0;
 
-double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool print)
+double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool print,int killSwitch)
 {
     int visited [v];
     int visitSum = 0;
@@ -35,6 +35,11 @@ double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool pr
 
     while(visitSum<v-1)
     {
+        double killTimer = getCounter();
+
+        if(killTimer > killSwitch)
+            return killTimer;
+
         visited[currentNode] = 1;
         visitSum++;
         int minimum = MAXINT;
@@ -50,11 +55,10 @@ double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool pr
         }
         result[resultCounter] = goToN;
         resultCounter++;
-//        path.append(to_string(goToN));
-//        std::cout<<currentNode<<" -> "<<goToN<<" "<<minimum<<endl;
+
         totalCost+=minimum;
         currentNode = goToN;
-//        std::cout<<currentNode<<" -> "<<totalCost<<endl;
+
     }
 
     totalCost+=graphMatrix[currentNode][startingNode];

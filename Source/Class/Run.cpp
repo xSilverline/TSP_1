@@ -9,12 +9,14 @@
 string outFileName;
 string inFileName;
 int optimal;
+int killTime;
 
 void Run::run(int **matrix,int size, int reps,int start, bool showPBar,int killSwitch,const string& method,string output,string input,int opt)
 {
     optimal = opt;
     inFileName = input;
     outFileName = output;
+    killTime = killSwitch;
     this->graphMatrix = matrix;
     this->graphSize = size;
     this->repeats = reps;
@@ -82,7 +84,7 @@ void Run::runNN()
 
     for(int i = 0 ; i < repeats; i++)
     {
-        oneTime= nearestNeighbour.runNN(graphMatrix,graphSize,startingNode,true);
+        oneTime= nearestNeighbour.runNN(graphMatrix,graphSize,startingNode,true,killTime);
         outputFile<<"Time NN Rep "<<i+1<<"\t"<<fixed<<setprecision(4)<<oneTime<<endl;
         time += oneTime;
         cout<<endl;
@@ -106,7 +108,7 @@ void Run::runRN()
 
     for(int i = 0 ; i < repeats; i++)
     {
-        oneTime = random.runRand(graphMatrix,graphSize);
+        oneTime = random.runRand(graphMatrix,graphSize,killTime,optimal);
         outputFile<<"Time RN Rep "<<i+1<<"\t"<<fixed<<setprecision(4)<<oneTime<<endl;
         time += oneTime;
         cout<<endl;
@@ -136,7 +138,7 @@ void Run::runAll(int killSwitch)
 
     for(int i = 0 ; i < repeats; i++)
     {
-        oneTimeN = nearestNeighbour.runNN(graphMatrix,graphSize,startingNode,true);
+        oneTimeN = nearestNeighbour.runNN(graphMatrix,graphSize,startingNode,true,killTime);
         outputFile<<"Time NN Rep "<<i+1<<"\t"<<fixed<<setprecision(4)<<oneTimeN<<endl;
         timeNN += oneTimeN;
         cout<<endl;
@@ -146,7 +148,7 @@ void Run::runAll(int killSwitch)
         timeBf += oneTimeB;
         cout<<endl;
 
-        oneTimeR = random.runRand(graphMatrix,graphSize);
+        oneTimeR = random.runRand(graphMatrix,graphSize,killTime,optimal);
         outputFile<<"Time RN Rep "<<i+1<<"\t"<<fixed<<setprecision(4)<<oneTimeR<<endl;
         timeRn += oneTimeR;
         cout<<endl;
