@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "C:/MinGW/bin/c++.exe")
+set(CMAKE_CXX_COMPILER "D:/InteliJ/CLion/bin/mingw/bin/c++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "13.2.0")
@@ -22,11 +22,11 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 
-set(CMAKE_AR "C:/MinGW/bin/ar.exe")
-set(CMAKE_CXX_COMPILER_AR "C:/MinGW/bin/gcc-ar.exe")
-set(CMAKE_RANLIB "C:/MinGW/bin/ranlib.exe")
-set(CMAKE_CXX_COMPILER_RANLIB "C:/MinGW/bin/gcc-ranlib.exe")
-set(CMAKE_LINKER "C:/MinGW/bin/ld.exe")
+set(CMAKE_AR "D:/InteliJ/CLion/bin/mingw/bin/ar.exe")
+set(CMAKE_CXX_COMPILER_AR "D:/InteliJ/CLion/bin/mingw/bin/gcc-ar.exe")
+set(CMAKE_RANLIB "D:/InteliJ/CLion/bin/mingw/bin/ranlib.exe")
+set(CMAKE_CXX_COMPILER_RANLIB "D:/InteliJ/CLion/bin/mingw/bin/gcc-ranlib.exe")
+set(CMAKE_LINKER "D:/InteliJ/CLion/bin/mingw/bin/ld.exe")
 set(CMAKE_MT "")
 set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
@@ -79,7 +79,7 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "C:/MinGW/include/c++/13.2.0;C:/MinGW/include/c++/13.2.0/x86_64-w64-mingw32;C:/MinGW/include/c++/13.2.0/backward;C:/MinGW/lib/gcc/x86_64-w64-mingw32/13.2.0/include;C:/MinGW/include;C:/MinGW/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed;C:/MinGW/x86_64-w64-mingw32/include")
-set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;mingw32;gcc_s;gcc;moldname;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc_s;gcc;moldname;mingwex;kernel32")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "C:/MinGW/lib/gcc/x86_64-w64-mingw32/13.2.0;C:/MinGW/lib/gcc;C:/MinGW/x86_64-w64-mingw32/lib;C:/MinGW/lib;/MinGW/lib")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "D:/InteliJ/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++;D:/InteliJ/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32;D:/InteliJ/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/backward;D:/InteliJ/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.2.0/include;D:/InteliJ/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed;D:/InteliJ/CLion/bin/mingw/x86_64-w64-mingw32/include")
+set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;mingw32;gcc_s;gcc;moldname;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;iconv;mingw32;gcc_s;gcc;moldname;mingwex;kernel32")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "D:/InteliJ/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.2.0;D:/InteliJ/CLion/bin/mingw/lib/gcc;D:/InteliJ/CLion/bin/mingw/x86_64-w64-mingw32/lib;D:/InteliJ/CLion/bin/mingw/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

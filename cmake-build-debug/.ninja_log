@@ -1,10 +1,23 @@
-# ninja log v5
-2	237	7509646227299594	build.ninja	2b8dfdfba0e21dba
-14	2366	7509264614974397	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
-7	2576	7509264614897219	CMakeFiles/TSP_1.dir/Source/Class/main.cpp.obj	e6924f786bf92dd8
-7	824	7498676801962612	CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/INIReader.cpp.obj	f918e0bc8d8191d4
-1745	1934	7509275500241564	TSP_1.exe	63edd1ccb6ed1659
-14	2038	7509267561734145	CMakeFiles/TSP_1.dir/Source/Class/Run.cpp.obj	1ea0c529d3c9b496
-11	100	7498676802003032	CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/ini.cpp.obj	d3df393b398a7061
-6	1744	7509275482857037	CMakeFiles/TSP_1.dir/Source/Class/BruteForce.cpp.obj	757e85f172cb2b64
-7	2589	7509258092646706	CMakeFiles/TSP_1.dir/Source/Class/Random.cpp.obj	27a4c17c8ad6e029
+# ninja log v6
+47	198	7527367187225473	CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/ini.cpp.obj	d3df393b398a7061
+41	1402	7527367187165468	CMakeFiles/TSP_1.dir/Source/Libraries/iniParser/INIReader.cpp.obj	f918e0bc8d8191d4
+25	2512	7527367187005458	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+29	2597	7527367187045485	CMakeFiles/TSP_1.dir/Source/Class/BruteForce.cpp.obj	757e85f172cb2b64
+37	2694	7527367187125465	CMakeFiles/TSP_1.dir/Source/Class/Run.cpp.obj	1ea0c529d3c9b496
+7	2717	7527367186815463	CMakeFiles/TSP_1.dir/Source/Class/main.cpp.obj	e6924f786bf92dd8
+33	3417	7527367187085474	CMakeFiles/TSP_1.dir/Source/Class/Random.cpp.obj	27a4c17c8ad6e029
+3418	3654	7527367220928178	TSP_1.exe	63edd1ccb6ed1659
+7	1754	7527369659612342	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+1754	1963	7527369677091037	TSP_1.exe	63edd1ccb6ed1659
+7	1845	7527370268404980	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+1845	2055	7527370286788921	TSP_1.exe	63edd1ccb6ed1659
+7	1739	7527371715416509	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+1739	1936	7527371732730964	TSP_1.exe	63edd1ccb6ed1659
+6	1776	7527375124817024	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+1777	1970	7527375142520966	TSP_1.exe	63edd1ccb6ed1659
+7	1664	7527375256893084	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+1664	1857	7527375273469777	TSP_1.exe	63edd1ccb6ed1659
+6	1820	7527378117663695	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+1820	2017	7527378135803567	TSP_1.exe	63edd1ccb6ed1659
+6	1730	7527380204236954	CMakeFiles/TSP_1.dir/Source/Class/NearestNeighbour.cpp.obj	854559d00ab49b05
+1730	1943	7527380221476455	TSP_1.exe	63edd1ccb6ed1659

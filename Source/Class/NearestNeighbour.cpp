@@ -5,6 +5,7 @@
 #include "../Headers/NearestNeighbour.h"
 
 int **nnMatrix = nullptr;
+int ** result = nullptr;
 int cost=0;
 
 double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool print,int killSwitch)
@@ -12,71 +13,108 @@ double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool pr
     int visited [v];
     int visitSum = 0;
     int totalCost = 0;
-    int result [v];
+    int costList [v];
+    result = new int * [v];
     int resultCounter=0;
+    int minCost = MAXINT;
     nnMatrix = new int * [v];
+    int minimalNode = 0;
     string path;
-    int currentNode = startingNode;
+    int currentNode = 0;
 
     for(int i =0; i< v; i++)
     {
         visited[i] = 0;
-        result[i] = 0;
+        costList[i] = 0;
+        result[i] = new int [v];
         nnMatrix[i] = new int [v];
         std::copy(graphMatrix[i],graphMatrix[i]+v,nnMatrix[i]);
     }
-
-    startCounter();
-
-    result[resultCounter] = currentNode;
-    resultCounter++;
-
-
-
-    while(visitSum<v-1)
+    for(int i = 0; i<v; i++)
     {
-        double killTimer = getCounter();
-
-        if(killTimer > killSwitch)
-            return killTimer;
-
-        visited[currentNode] = 1;
-        visitSum++;
-        int minimum = MAXINT;
-        int goToN = -1;
-        for(int neighbour = 0; neighbour<v;neighbour++)
+        for(int j = 0; j<v; j++)
         {
-            int temp = nnMatrix[currentNode][neighbour];
-            if(temp != -1 && temp < minimum && !visited[neighbour])
-            {
-                minimum = temp;
-                goToN = neighbour;
-            }
+            result[i][j] = 0;
         }
-        result[resultCounter] = goToN;
-        resultCounter++;
-
-        totalCost+=minimum;
-        currentNode = goToN;
-
+    }
+    if(print)
+    {
+        std::cout << "-- Nearest Neighbour -- " << endl;
     }
 
-    totalCost+=graphMatrix[currentNode][startingNode];
-    cost = totalCost;
+    startCounter();
+    for(int i=0; i<v;i++)
+    {
+        currentNode = i;
+//        std::cout << "NODE: " << currentNode << endl;
+        resultCounter = 0;
+        result[i][resultCounter] = currentNode;
+        resultCounter++;
+        visitSum = 0;
+        totalCost = 0;
+        for(int j = 0; j<v;j++)
+            visited[j] = 0;
+
+
+
+        while(visitSum<v-1)
+        {
+//            std::cout << "NODE-BB: " << currentNode << endl;
+            double killTimer = getCounter();
+
+            if(killTimer > killSwitch)
+                return killTimer;
+
+            visited[currentNode] = 1;
+            visitSum++;
+            int minimum = MAXINT;
+            int goToN = -1;
+            for(int neighbour = 0; neighbour<v;neighbour++)
+            {
+                int temp = nnMatrix[currentNode][neighbour];
+                if(temp != -1 && temp < minimum && !visited[neighbour])
+                {
+                    minimum = temp;
+                    goToN = neighbour;
+                }
+            }
+            result[i][resultCounter] = goToN;
+            resultCounter++;
+
+            totalCost+=minimum;
+            currentNode = goToN;
+
+        }
+
+        totalCost += graphMatrix[currentNode][i];
+        costList[i] = totalCost;
+
+        if(totalCost < minCost)
+        {
+            cost = totalCost;
+            minCost = totalCost;
+            minimalNode = i;
+        }
+
+    }
 
     double time = getCounter();
 //    std::cout<<currentNode<<" -> "<<startingNode<<" "<<graphMatrix[currentNode][startingNode]<<endl;
 if(print)
 {
-    std::cout << "-- Nearest Neighbour -- " << endl;
+    for(int j = 0; j<v;j++)
+        cout<< "Cost from "<<j<<" -> "<<costList[j]<<endl;
+
+
+
     if (path.size() < 17) {
         std::cout << "Best Path: " << endl;
-        for (int i: result) {
-            cout << i << " -> ";
+        for (int i = 0; i<v;i++)  {
+            cout <<result[minimalNode][i] << " -> ";
         }
-        cout << result[0] << endl;
+        cout << result[minimalNode][0] << endl;
     }
-    std::cout << "Cost: " << totalCost << endl;
+    std::cout << "Cost: " << cost << endl;
     std::cout << "Time: " << time << " ms" << endl;
 }
 
